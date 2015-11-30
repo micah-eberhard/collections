@@ -1,10 +1,31 @@
 /***************************
+Nov 23 Warmup
+Find Average through forEach
+Input: Number Array
+****************************/
+function nov23()
+{
+  console.log("\n-----Nov23-----\nFind Average through forEach\n");
+  function getAverage(element, indx, arr)
+  {
+    avg += element;
+  }
+  var avg = 0;
+  var stuff = [1,2,3,4,5,6,7,8,9,10,30,90];
+
+  stuff.forEach(getAverage);
+  avg = avg / stuff.length;
+  console.log(avg);
+}
+
+/***************************
 Nov 24 Warmup
 Add, Subtract, Multiply, Divide
 Input: String
 ****************************/
 function nov24()
 {
+  console.log("\n\n-----Nov24-----\nAdd, Subtract, Multiply, Divide from String\n");
   function subtractString(str)    //Sutract
   {
     var arr = str.split('-');
@@ -64,9 +85,11 @@ function nov24()
 /***************************
 Nov 30 Warmup
 Parsing a Query String from a URL
+Input: String
 ****************************/
 function nov30()
 {
+  console.log("\n\n-----Nov30-----\nParsing a Query String from a URL\n");
   function parseQueryString(str)
   {
     var paramSet = {};
@@ -97,5 +120,6 @@ function nov30()
 Functions
 ****************************/
 
+nov23();
 nov24();
 nov30();
