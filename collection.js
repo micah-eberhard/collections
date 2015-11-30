@@ -104,7 +104,6 @@ function nov30()
       var value = pair[1];
 
       paramSet[key] = value;
-      //console.log("Key: " + key + "\t\t Value: " + value);
     }
     return paramSet;
   }
@@ -113,6 +112,36 @@ function nov30()
   //=> {find_desc: "tacos", find_loc: "San+FranciscoCA"}
   console.log(parseQueryString("http://www.reddit.com/r/aww/search?q=dogs&sort=top&t=week"));
   //=> {q: "dogs", sort: "top", t: "week"}
+
+  console.log("\n\n-----Nov30-----\nAsync Demonstration\n");
+  function timerApp()
+  {
+    //console.log("in timer");
+    var timeout = false;
+    var waitAmt = 100;
+    function timer(){
+      setTimeout(function(){
+        timeout = true;
+      }, waitAmt);
+
+      wait();
+
+
+    }
+    function wait(){
+
+      if (!timeout) {
+        console.log("working ... waiting");
+        setTimeout(wait,10);
+        }
+        else {
+          console.log('done');
+        }
+      }
+    timer();
+  }
+  //console.log('\n\n');
+  timerApp();
 }
 
 
