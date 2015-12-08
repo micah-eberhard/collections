@@ -214,6 +214,55 @@ function dec2()
 }
 
 /***************************
+Dec 8 Warmup
+Garble a paragraph string to scramble the order
+of words except the first and last letters.
+Input: String
+****************************/
+function dec8()
+{
+  function garble (str){
+    var strArr = str.split(' ');
+    var newArr = [];
+
+    for(var i=0; i < strArr.length; i++)
+    {
+      currArr = strArr[i].split('');
+      var holdArr = [];
+      var pickedArr = [];
+      holdArr.push(currArr[0]);
+      for(var k=1; k < currArr.length-1; k++)
+      {
+        var newRand = false;
+        var randIdx = -1;
+        while(!newRand)
+        {
+          randIdx = Math.floor(Math.random()*(currArr.length-1)+1);
+          newRand = true;
+          for(var v=0; v < pickedArr.length; v++)
+          {
+            if(randIdx === pickedArr[v])
+              newRand = false;
+          }
+        }
+        pickedArr.push(randIdx);
+        holdArr[randIdx] = currArr[k];
+      }
+      holdArr.push(currArr[currArr.length-1]);
+
+      var newStr = holdArr.join('');
+      newArr.push(newStr);
+    }
+    var wholeStr = newArr.join(' ');
+
+    return wholeStr;
+  }
+
+  var para = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+
+  console.log(garble(para));
+}
+/***************************
 Functions
 ****************************/
 
@@ -221,3 +270,4 @@ nov23();
 nov24();
 nov30();
 dec2();
+dec8();
